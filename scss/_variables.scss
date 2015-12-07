@@ -1,0 +1,14 @@
+$cloud-color: #d9d9d9;
+$sun-color: #fff134;
+$snow-color: #fff;
+$thunder-color: #fff134;
+$shadow-color: #fff;
+$rain-color: #00cde1;
+
+// Weahter container layout
+@mixin weather-container {
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
+  width: 250px;
+}

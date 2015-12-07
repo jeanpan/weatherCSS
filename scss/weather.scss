@@ -1,0 +1,274 @@
+@import '_variables';
+@import 'prototype';
+@import 'animation';
+
+// Components - sun, cloud, rain, thunder, snow
+
+// Sun
+.sun {
+  @include sun-prototype($sun-color);
+}
+
+// Cloud
+.back-cloud {
+  @include cloud-prototype($cloud-color);
+}
+
+.front-cloud {
+  @include cloud-prototype($cloud-color);
+  animation: moving 3s linear 0s infinite;
+}
+
+.cloud-shadow {
+  @include cloud-prototype($shadow-color);
+  animation: moving 3s linear 0s infinite;
+  transform: scale(1.06);
+}
+
+// Rain
+.rains {
+  position: absolute;
+  width: 110px;
+}
+
+.rain1 {
+  @include rain-prototype($rain-color);
+  animation: raining 2.25s ease-in-out 0s infinite;
+  margin: 0 10px;
+}
+
+.rain2 {
+  @include rain-prototype($rain-color);
+  animation: raining 2.25s ease-in-out -1.5s infinite;
+  margin: 0 10px;
+}
+
+.rain3 {
+  @include rain-prototype($rain-color);
+  animation: raining 2.25s ease-in-out -.75s infinite;
+  margin: 0 10px;
+}
+
+// Thunder
+.thunders {
+  position: absolute;
+  width: 30px;
+}
+
+.thunder {
+  @include thunder-prototype($thunder-color);
+  animation: lighting 5s ease-in-out 0s infinite;
+}
+
+// Snow
+.snows {
+  position: absolute;
+  width: 140px;
+}
+
+.snow1 {
+  @include snow-prototype($snow-color);
+  animation: snowing 3s linear 0s infinite;
+  top: -4px;
+}
+
+.snow2 {
+  @include snow-prototype($snow-color);
+  animation: snowing 4s linear 0s infinite;
+  left: 20px;
+  top: -1px;
+}
+
+.snow3 {
+  @include snow-prototype($snow-color);
+  animation: snowing 3.5s linear 0s infinite;
+  left: 40px;
+  top: 0;
+}
+
+.snow4 {
+  @include snow-prototype($snow-color);
+  animation: snowing 2.5s linear 0s infinite;
+  left: 60px;
+  top: -2px;
+}
+
+.snow5 {
+  @include snow-prototype($snow-color);
+  animation: snowing 4.5s linear 0s infinite;
+  left: 80px;
+  top: -5px;
+}
+
+.snow6 {
+  @include snow-prototype($snow-color);
+  animation: snowing 5s linear 0s infinite;
+  left: 100px;
+  top: -1px;
+}
+
+// Weather is made up of components
+
+// Sunny
+.sunny {
+  @include weather-container;
+
+  .sun {
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+  }
+}
+
+// Partly cloudy
+.partly-cloudy {
+  @include weather-container;
+
+  .sun {
+    left: -80px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+  }
+
+  .cloud-shadow {
+    left: 55px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 77px;
+  }
+
+  .front-cloud {
+    left: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 80px;
+  }
+}
+
+// Mostly cloudy
+.mostly-cloudy {
+  @include weather-container;
+
+  .back-cloud {
+    left: -78px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 40px;
+  }
+
+  .cloud-shadow {
+    left: 74px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 78px;
+  }
+
+  .front-cloud {
+    left: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 80px;
+  }
+}
+
+// Rainy
+.rainy {
+  @include weather-container;
+
+  .back-cloud {
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 40px;
+  }
+
+  .rains {
+    left: -10px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 95px;
+  }
+}
+
+// Thundery
+.thundery {
+  @include weather-container;
+
+  .back-cloud {
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 40px;
+  }
+
+  .thunders {
+    left: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 80px;
+  }
+}
+
+// Thundery rain
+.thundery-rain {
+  height: 250px;
+  margin: 0 auto;
+  position: relative;
+  width: 250px;
+
+  .back-cloud {
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 40px;
+  }
+
+  .rains {
+    left: -10px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 95px;
+  }
+
+  .thunders {
+    left: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 80px;
+  }
+}
+
+// Snowy
+.snowy {
+  @include weather-container;
+
+  .back-cloud {
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 40px;
+  }
+
+  .snows {
+    left: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 95px;
+  }
+}
